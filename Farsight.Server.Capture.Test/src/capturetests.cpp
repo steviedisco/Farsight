@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
+#include "CaptureController.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -76,5 +77,8 @@ namespace Farsight { namespace Server { namespace Capture { namespace Test
 		TEST_METHOD(ErrorHandling)
 		{
 		}
+
+	private:
+		CAPTURECONTROLLER controller;
 	};
 }}}}
