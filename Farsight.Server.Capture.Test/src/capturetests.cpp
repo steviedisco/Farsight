@@ -3,12 +3,19 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace FarsightServerDuplicationTest
+namespace FarsightServerCaptureTest
 {		
 	TEST_CLASS(CaptureTests)
 	{
 	public:
-		
+		TEST_CLASS_INITIALIZE(Setup)
+		{
+		}
+
+		TEST_CLASS_CLEANUP(Teardown)
+		{
+		}
+
 		TEST_METHOD(CaptureSingleFrame)
 		{
 		}
@@ -58,14 +65,6 @@ namespace FarsightServerDuplicationTest
 		}
 
 		TEST_METHOD(HighBitrate)
-		{
-		}
-
-		TEST_METHOD(Setup)
-		{
-		}
-
-		TEST_METHOD(Teardown)
 		{
 		}
 

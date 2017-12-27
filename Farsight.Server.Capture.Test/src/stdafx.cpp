@@ -1,5 +1,5 @@
 // stdafx.cpp : source file that includes just the standard includes
-// Farsight.Server.Duplication.Test.pch will be the pre-compiled header
+// Farsight.Server.Capture.Test.pch will be the pre-compiled header
 // stdafx.obj will contain the pre-compiled type information
 
 #include "stdafx.h"
