@@ -1,12 +1,4 @@
-// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
-// PARTICULAR PURPOSE.
-//
-// Copyright (c) Microsoft Corporation. All rights reserved
-
-#ifndef _COMMONTYPES_H_
-#define _COMMONTYPES_H_
+#pragma once
 
 #include <windows.h>
 #include <d3d11.h>
@@ -111,5 +103,3 @@ typedef struct _VERTEX
     DirectX::XMFLOAT3 Pos;
     DirectX::XMFLOAT2 TexCoord;
 } VERTEX;
-
-#endif

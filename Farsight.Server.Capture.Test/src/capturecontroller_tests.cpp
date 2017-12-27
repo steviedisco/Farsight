@@ -3,10 +3,11 @@
 #include "CaptureController.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+using namespace Farsight::Server::Capture;
 
-namespace Farsight { namespace Server { namespace Capture { namespace Test
+namespace Farsight::Server::Capture::Test
 {
-	TEST_CLASS(CaptureTests)
+	TEST_CLASS(CAPTURECONTROLLER_TESTS)
 	{
 	public:
 		TEST_CLASS_INITIALIZE(Setup)
@@ -81,4 +82,4 @@ namespace Farsight { namespace Server { namespace Capture { namespace Test
 	private:
 		CAPTURECONTROLLER controller;
 	};
-}}}}
+}

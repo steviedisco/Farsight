@@ -1,12 +1,17 @@
 #pragma once
 
-class CAPTURECONTROLLER
+namespace Farsight::Server::Capture
 {
-public:
-	CAPTURECONTROLLER();
-	~CAPTURECONTROLLER();
+	enum class CAPTURETYPE { Single };
 
-	void CaptureSingleFrame();
+	class CAPTURECONTROLLER
+	{
+	public:
+		CAPTURECONTROLLER();
+		~CAPTURECONTROLLER();
 
-private:
-};
+		void Capture(CAPTURETYPE type);
+
+	private:
+	};
+}

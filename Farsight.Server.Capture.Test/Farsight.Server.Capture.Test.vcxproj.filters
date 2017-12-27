@@ -23,10 +23,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\capturetests.cpp">
+    <ClCompile Include="src\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\stdafx.cpp">
+    <ClCompile Include="src\capturecontroller_tests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

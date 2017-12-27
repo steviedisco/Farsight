@@ -1,14 +1,16 @@
 #include "stdafx.h"
 #include "CaptureController.h"
 
-CAPTURECONTROLLER::CAPTURECONTROLLER()
+namespace FarsightServerCapture = Farsight::Server::Capture;
+
+FarsightServerCapture::CAPTURECONTROLLER::CAPTURECONTROLLER()
 {
 }
 
-CAPTURECONTROLLER::~CAPTURECONTROLLER()
+FarsightServerCapture::CAPTURECONTROLLER::~CAPTURECONTROLLER()
 {
 }
 
-void CAPTURECONTROLLER::CaptureSingleFrame()
+void FarsightServerCapture::CAPTURECONTROLLER::Capture(CAPTURETYPE type)
 {
 }
