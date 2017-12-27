@@ -3,8 +3,8 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace FarsightServerCaptureTest
-{		
+namespace Farsight { namespace Server { namespace Capture { namespace Test
+{
 	TEST_CLASS(CaptureTests)
 	{
 	public:
@@ -14,6 +14,11 @@ namespace FarsightServerCaptureTest
 
 		TEST_CLASS_CLEANUP(Teardown)
 		{
+		}
+
+		TEST_METHOD(AssertTest)
+		{
+			Assert::IsTrue(true, L"This should never fail as it is asserting true = true.");
 		}
 
 		TEST_METHOD(CaptureSingleFrame)
@@ -72,4 +77,4 @@ namespace FarsightServerCaptureTest
 		{
 		}
 	};
-}
+}}}}

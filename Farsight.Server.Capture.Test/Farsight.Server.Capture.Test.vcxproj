@@ -29,6 +29,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Farsight.Server.Capture\Farsight.Server.Capture.vcxproj">
+      <Project>{d8e6b4e8-7b3f-4ff8-b7cb-cfb487cf6c56}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4693C715-4B8A-422E-AA29-74AC4ADC4852}</ProjectGuid>
