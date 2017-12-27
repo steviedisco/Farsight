@@ -206,3 +206,6 @@ $RECYCLE.BIN/
 # Custom
 browse.vc.db
 browse.vc.opendb
+solution.vc.db
+solution.vc.db-shm
+solution.vc.db-wal
