@@ -9,13 +9,18 @@ namespace Farsight::Server::Capture::Test
 {
 	TEST_CLASS(CAPTURECONTROLLER_TESTS)
 	{
+	private:
+		static CAPTURECONTROLLER*  _controller;
+
 	public:
 		TEST_CLASS_INITIALIZE(Setup)
 		{
+			_controller = new CAPTURECONTROLLER();
 		}
 
 		TEST_CLASS_CLEANUP(Teardown)
 		{
+			SAFE_DELETE(_controller);
 		}
 
 		TEST_METHOD(AssertTest)
@@ -25,6 +30,7 @@ namespace Farsight::Server::Capture::Test
 
 		TEST_METHOD(CaptureSingleFrame)
 		{
+			
 		}
 
 		TEST_METHOD(PersistSingleFrame)
@@ -78,8 +84,5 @@ namespace Farsight::Server::Capture::Test
 		TEST_METHOD(ErrorHandling)
 		{
 		}
-
-	private:
-		CAPTURECONTROLLER controller;
 	};
 }

@@ -1,18 +1,16 @@
 #include "stdafx.h"
 #include "ThreadManager.h"
 
-namespace FarsightServerCapture = Farsight::Server::Capture;
-
 DWORD WINAPI DDProc(_In_ void* Param);
 
-FarsightServerCapture::THREADMANAGER::THREADMANAGER() : m_ThreadCount(0),
+Farsight::Server::Capture::THREADMANAGER::THREADMANAGER() : m_ThreadCount(0),
                                  m_ThreadHandles(nullptr),
                                  m_ThreadData(nullptr)
 {
     RtlZeroMemory(&m_PtrInfo, sizeof(m_PtrInfo));
 }
 
-FarsightServerCapture::THREADMANAGER::~THREADMANAGER()
+Farsight::Server::Capture::THREADMANAGER::~THREADMANAGER()
 {
     Clean();
 }
@@ -20,7 +18,7 @@ FarsightServerCapture::THREADMANAGER::~THREADMANAGER()
 //
 // Clean up resources
 //
-void FarsightServerCapture::THREADMANAGER::Clean()
+void Farsight::Server::Capture::THREADMANAGER::Clean()
 {
     if (m_PtrInfo.PtrShapeBuffer)
     {
@@ -58,7 +56,7 @@ void FarsightServerCapture::THREADMANAGER::Clean()
 //
 // Clean up DX_RESOURCES
 //
-void FarsightServerCapture::THREADMANAGER::CleanDx(_Inout_ DX_RESOURCES* Data)
+void Farsight::Server::Capture::THREADMANAGER::CleanDx(_Inout_ DX_RESOURCES* Data)
 {
     if (Data->Device)
     {
@@ -100,7 +98,7 @@ void FarsightServerCapture::THREADMANAGER::CleanDx(_Inout_ DX_RESOURCES* Data)
 //
 // Start up threads for DDA
 //
-DUPL_RETURN FarsightServerCapture::THREADMANAGER::Initialize(INT SingleOutput, UINT OutputCount, HANDLE UnexpectedErrorEvent, HANDLE ExpectedErrorEvent, HANDLE TerminateThreadsEvent, HANDLE SharedHandle, _In_ RECT* DesktopDim)
+DUPL_RETURN Farsight::Server::Capture::THREADMANAGER::Initialize(INT SingleOutput, UINT OutputCount, HANDLE UnexpectedErrorEvent, HANDLE ExpectedErrorEvent, HANDLE TerminateThreadsEvent, HANDLE SharedHandle, _In_ RECT* DesktopDim)
 {
     m_ThreadCount = OutputCount;
     m_ThreadHandles = new (std::nothrow) HANDLE[m_ThreadCount];
@@ -144,7 +142,7 @@ DUPL_RETURN FarsightServerCapture::THREADMANAGER::Initialize(INT SingleOutput, U
 //
 // Get DX_RESOURCES
 //
-DUPL_RETURN FarsightServerCapture::THREADMANAGER::InitializeDx(_Out_ DX_RESOURCES* Data)
+DUPL_RETURN Farsight::Server::Capture::THREADMANAGER::InitializeDx(_Out_ DX_RESOURCES* Data)
 {
     HRESULT hr = S_OK;
 
@@ -237,7 +235,7 @@ DUPL_RETURN FarsightServerCapture::THREADMANAGER::InitializeDx(_Out_ DX_RESOURCE
 //
 // Getter for the PTR_INFO structure
 //
-PTR_INFO* FarsightServerCapture::THREADMANAGER::GetPointerInfo()
+PTR_INFO* Farsight::Server::Capture::THREADMANAGER::GetPointerInfo()
 {
     return &m_PtrInfo;
 }
@@ -245,7 +243,7 @@ PTR_INFO* FarsightServerCapture::THREADMANAGER::GetPointerInfo()
 //
 // Waits infinitely for all spawned threads to terminate
 //
-void FarsightServerCapture::THREADMANAGER::WaitForThreadTermination()
+void Farsight::Server::Capture::THREADMANAGER::WaitForThreadTermination()
 {
     if (m_ThreadCount != 0)
     {

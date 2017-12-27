@@ -22,6 +22,8 @@ extern HRESULT FrameInfoExpectedErrors[];
 extern HRESULT AcquireFrameExpectedError[];
 extern HRESULT EnumOutputsExpectedErrors[];
 
+#define SAFE_DELETE(p) if ((p) != nullptr) { delete (p); (p) = nullptr; }
+
 typedef _Return_type_success_(return == DUPL_RETURN_SUCCESS) enum
 {
     DUPL_RETURN_SUCCESS             = 0,

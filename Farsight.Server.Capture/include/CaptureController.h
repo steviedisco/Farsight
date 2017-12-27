@@ -13,5 +13,11 @@ namespace Farsight::Server::Capture
 		void Capture(CAPTURETYPE type);
 
 	private:
+		// Synchronization
+		HANDLE UnexpectedErrorEvent = nullptr;
+		HANDLE ExpectedErrorEvent = nullptr;
+		HANDLE TerminateThreadsEvent = nullptr;
+
+		HCURSOR Cursor = nullptr;
 	};
 }
