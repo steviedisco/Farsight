@@ -53,7 +53,23 @@ namespace FarsightServerDuplicationTest
 		{
 		}
 
+		TEST_METHOD(MediumBitrate)
+		{
+		}
+
 		TEST_METHOD(HighBitrate)
+		{
+		}
+
+		TEST_METHOD(Setup)
+		{
+		}
+
+		TEST_METHOD(Teardown)
+		{
+		}
+
+		TEST_METHOD(ErrorHandling)
 		{
 		}
 	};
