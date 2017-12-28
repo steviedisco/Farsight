@@ -29,7 +29,7 @@ namespace Farsight::Server::Capture::Test
 
 		TEST_METHOD(CaptureSingleFrame)
 		{
-			
+			_controller->Capture(CAPTURETYPE::Single);
 		}
 
 		TEST_METHOD(PersistSingleFrame)

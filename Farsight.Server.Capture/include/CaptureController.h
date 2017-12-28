@@ -1,5 +1,7 @@
 #pragma once
 
+#include "CommonTypes.h"
+
 namespace Farsight::Server::Capture
 {
 	enum class CAPTURETYPE { Single };
@@ -14,10 +16,13 @@ namespace Farsight::Server::Capture
 
 	private:
 		// Synchronization
-		HANDLE UnexpectedErrorEvent = nullptr;
-		HANDLE ExpectedErrorEvent = nullptr;
-		HANDLE TerminateThreadsEvent = nullptr;
+		HANDLE _UnexpectedErrorEvent = nullptr;
+		HANDLE _ExpectedErrorEvent = nullptr;
+		HANDLE _TerminateThreadsEvent = nullptr;
 
-		HCURSOR Cursor = nullptr;
+		THREADMANAGER _ThreadMgr;
+		DYNAMIC_WAIT DynamicWait;
+
+		bool _FirstTime = true;
 	};
 }

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "CommonTypes.h"
+
 namespace Farsight::Server::Capture
 {
 	class THREADMANAGER

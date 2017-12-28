@@ -8,4 +8,11 @@
 #include "targetver.h"
 
 // TODO: reference additional headers your program requires here
+#include <stdio.h>
 #include "CommonTypes.h"
+#include "ThreadManager.h"
+#include "DynamicWait.h"
+#include "CaptureController.h"
+#include "DisplayManager.h"
+#include "DuplicationManager.h"
+#include "OutputManager.h"
