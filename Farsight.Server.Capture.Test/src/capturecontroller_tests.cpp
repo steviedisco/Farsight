@@ -9,10 +9,9 @@ namespace Farsight::Server::Capture::Test
 {
 	TEST_CLASS(CAPTURECONTROLLER_TESTS)
 	{
-	private:
-		static CAPTURECONTROLLER*  _controller;
-
 	public:
+		static CAPTURECONTROLLER* _controller;
+
 		TEST_CLASS_INITIALIZE(Setup)
 		{
 			_controller = new CAPTURECONTROLLER();
@@ -85,4 +84,6 @@ namespace Farsight::Server::Capture::Test
 		{
 		}
 	};
+
+	CAPTURECONTROLLER* CAPTURECONTROLLER_TESTS::_controller;
 }
