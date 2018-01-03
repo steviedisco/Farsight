@@ -37,6 +37,8 @@ Farsight::Server::Capture::CAPTURECONTROLLER::~CAPTURECONTROLLER()
 
 void Farsight::Server::Capture::CAPTURECONTROLLER::Capture(CAPTURETYPE type)
 {
+	DUPL_RETURN Ret = DUPL_RETURN_SUCCESS;
+
 	if (!_FirstTime)
 	{
 		// Terminate other threads
@@ -51,12 +53,35 @@ void Farsight::Server::Capture::CAPTURECONTROLLER::Capture(CAPTURETYPE type)
 
 		// As we have encountered an error due to a system transition we wait before trying again, using this dynamic wait
 		// the wait periods will get progressively long to avoid wasting too much system resource if this state lasts a long time
-		DynamicWait.Wait();
+		_DynamicWait.Wait();
 	}
 	else
 	{
 		// First time through the loop so nothing to clean up
 		_FirstTime = false;
+	}
+
+	// Re-initialize
+	Ret = _OutMgr.InitOutput(_WindowHandle, _SingleOutput, &_OutputCount, &_DeskBounds);
+	if (Ret == DUPL_RETURN_SUCCESS)
+	{
+		HANDLE SharedHandle = _OutMgr.GetSharedHandle();
+		if (SharedHandle)
+		{
+			Ret = _ThreadMgr.Initialize(_SingleOutput, _OutputCount, _UnexpectedErrorEvent, _ExpectedErrorEvent, _TerminateThreadsEvent, SharedHandle, &_DeskBounds);
+		}
+		else
+		{
+			DisplayMsg(L"Failed to get handle of shared surface", L"Error", S_OK);
+			Ret = DUPL_RETURN_ERROR_UNEXPECTED;
+		}
+	}
+
+	// Check if for errors
+	if (Ret == DUPL_RETURN_ERROR_EXPECTED)
+	{
+		// Some type of system transition is occurring so retry
+		SetEvent(_ExpectedErrorEvent);
 	}
 }
 

@@ -20,8 +20,14 @@ namespace Farsight::Server::Capture
 		HANDLE _ExpectedErrorEvent = nullptr;
 		HANDLE _TerminateThreadsEvent = nullptr;
 
+		OUTPUTMANAGER _OutMgr;
 		THREADMANAGER _ThreadMgr;
-		DYNAMIC_WAIT DynamicWait;
+		DYNAMIC_WAIT _DynamicWait;
+
+		HWND _WindowHandle = nullptr;
+		INT _SingleOutput;
+		RECT _DeskBounds;
+		UINT _OutputCount;
 
 		bool _FirstTime = true;
 	};
